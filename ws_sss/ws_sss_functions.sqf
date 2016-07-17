@@ -76,6 +76,14 @@ _fnc_createGroupType = {
 		private _classes = [units _grp] call ws_fnc_getObjectClasses;
 		private _newgrp = [_grp,_trg,_classes] call _code;
 		[_newgrp,behaviour leader _grp,formation leader _grp,combatMode leader _grp,speedMode leader _grp] call ws_fnc_setAIMode;
+
+		// Check if the original group was in a vehicle, if so, add the vehicle
+		// TODO Restore mount order of blueprint group rather than blindly mounting new units
+		if ({!(vehicle _x isKindOf "Man")} count units _grp > 0) then {
+			_veh = (TypeOF (vehicle leader _grp)) createVehicle (getPos leader _newGrp);
+			[[_veh],["_newGrp"],true,true] call ws_fnc_loadVehicle;
+		};
+
 		_trg getVariable ["groupspresent",[]] pushback (_newgrp);
 		_logic getVariable ["groupspresent",[]] pushback (_newgrp);
 		//_logic setVariable ["groupspresent",((_logic getVariable ["groupspresent",[]]) + [_newgrp])];
