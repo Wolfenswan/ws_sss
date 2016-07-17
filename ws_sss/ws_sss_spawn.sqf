@@ -111,6 +111,7 @@
 		_newgrp
 	}] call _fnc_createGroupType;
 
+	// Ambush (Road)
 	[_logic,"ambush-road",{
 		params ["_grp","_trg","_classes"];
 		private _pos = [([_trg] call ws_fnc_getPosInArea)] call ws_fnc_NearestRoadPos;
