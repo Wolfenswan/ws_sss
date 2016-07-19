@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4356.3682,368.40109,2813.199};
-		dir[]={-0.10838146,-0.62287593,0.77481705};
-		up[]={-0.086290799,0.78231806,0.61688268};
-		aside[]={0.99038166,-8.2014594e-008,0.13853538};
+		pos[]={3984.8613,30,876.51758};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -686,7 +686,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3780.0217,5,360.94873};
+				position[]={3762.4624,5,407.94312};
 			};
 			name="ws_sss_controller_2";
 			init="this setVariable [""hold"",0];" \n "this setVariable [""hold-poi"",0];" \n "this setVariable [""patrol"",3];" \n "this setVariable [""patrol-poi"",1];" \n "this setVariable [""garrison"",0];" \n "this setVariable [""garrison-poi"",0];" \n "this setVariable [""ambush"",0];" \n "this setVariable [""ambush-poi"",0];" \n "this setVariable [""ambush-road"",0];";
@@ -711,7 +711,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={4082.7847,5,531.77393};
+				position[]={4057.1028,5,510.20557};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=139;
@@ -722,7 +722,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3978.2065,5,266.18506};
+				position[]={3977.9917,5,299.61328};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=140;
@@ -740,7 +740,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3788.502,5.0014391,337.70209};
+						position[]={3768.7769,5.0014391,335.00751};
 					};
 					side="West";
 					flags=7;
@@ -779,7 +779,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3795.5239,5.0014391,330.72894};
+						position[]={3775.7988,5.0014391,328.03436};
 					};
 					side="West";
 					flags=5;
@@ -796,7 +796,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3800.5239,5.0014391,325.72894};
+						position[]={3780.7988,5.0014391,323.03436};
 					};
 					side="West";
 					flags=5;
@@ -812,7 +812,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3805.5239,5.0014391,320.72894};
+						position[]={3785.7988,5.0014391,318.03436};
 					};
 					side="West";
 					flags=5;
@@ -828,7 +828,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3810.5239,5.0014391,315.72894};
+						position[]={3790.7988,5.0014391,313.03436};
 					};
 					side="West";
 					flags=5;
@@ -854,7 +854,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={4096.6201,5,294.59473};
+				position[]={4063.7886,5,326.35498};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=156;
@@ -883,7 +883,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3775.2114,5.0014391,337.90887};
+						position[]={3755.4863,5.0014391,335.21429};
 					};
 					side="West";
 					flags=7;
@@ -900,7 +900,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3780.2114,5.0014391,332.90887};
+						position[]={3760.4863,5.0014391,330.21429};
 					};
 					side="West";
 					flags=5;
@@ -925,7 +925,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3858.4526,5,314.35986};
+				position[]={3886.6235,5,320.78369};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=172;
@@ -936,7 +936,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3873.8228,5,521.13184};
+				position[]={3881.0525,5,495.72021};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=173;
@@ -947,7 +947,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3977.0425,5,533.75049};
+				position[]={3977.9917,5,531.37646};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=174;
@@ -1450,11 +1450,11 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=26;
+			nextID=27;
 		};
 		class Links
 		{
-			items=26;
+			items=27;
 			class Item0
 			{
 				linkID=0;
@@ -1710,6 +1710,16 @@ class Mission
 				linkID=25;
 				item0=200;
 				item1=201;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item26
+			{
+				linkID=26;
+				item0=137;
+				item1=138;
 				class CustomData
 				{
 					type="Sync";
