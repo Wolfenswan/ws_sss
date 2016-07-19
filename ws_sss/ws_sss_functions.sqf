@@ -45,6 +45,10 @@ _fnc_createGroupType = {
 		// Find a group that corresponds to the selected type
 		private _grp = selectRandom ((_logic getVariable ["groups",[]]) select {_x getVariable [_type,false]});
 
+		if (isNil "_grp") exitWith {
+			["ws_sss DBG: ",[_logic]," is trying to a group but has no valid blueprints for it!"] call ws_fnc_debugtext;
+		};
+
 		// Create a copy of the picked group at the selected location and call the type-specific code on it
 		private _newgrp = [_grp,_trg,(_grp getVariable ["classes",[]])] call _code;
 		if !(isNil "_newgrp") then {
