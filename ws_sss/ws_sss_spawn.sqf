@@ -1,7 +1,6 @@
 /* WOLFENSWAN's SIMPLE SPAWN SYSTEM */
 
 // Loop through all controller logics and create groups for each type
-// TODO set POIs groupspresent + 1 where relevant
 {
 	private _logic = _x;
 
@@ -52,7 +51,7 @@
 	// Patrol (PoI)
 	[_logic,"patrol-poi",{
 		params ["_grp","_trg","_classes"];
-		private _poi = selectRandom (_trg getVariable ["spawns",[]]);
+		private _poi = [_trg,_type] call _fnc_getGoodSpawn;
 		if (isNil "_poi") exitWith {
 			["ws_sss DBG: ",[_trg, _type]," does not have any valid POIs left but is trying to spawn groups on them!"] call ws_fnc_debugtext;
 		};
@@ -60,11 +59,11 @@
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
 
 		// TODO Randomize patrol points
+		// TODO Only pick pois with proper type
 		{
 			[_newgrp,getPos _x,["move"]] call ws_fnc_addWaypoint;
 		} forEach(_trg getVariable ["pois",[]]);
 		[_newgrp,_pos,["cycle"]] spawn ws_fnc_addWaypoint;
-		//_poi getVariable ["groupspresent",[]] pushback (_newgrp); - As the group patrols it's not "present"
 		_newgrp
 	}] call _fnc_createGroupType;
 
@@ -109,8 +108,8 @@
 		};
 		private _pos = [_poi,50,0,360] call ws_fnc_getPos;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		_poi getVariable ["groupspresent",[]] pushback (_newgrp);
 		[_newgrp,_pos,["ambush"]] spawn ws_fnc_addWaypoint;
+		_poi getVariable ["groupspresent",[]] pushback (_newgrp);
 		_newgrp
 	}] call _fnc_createGroupType;
 
