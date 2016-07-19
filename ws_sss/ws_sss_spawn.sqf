@@ -72,7 +72,7 @@
 		params ["_grp","_trg","_classes"];
 		private _pos = nearestBuilding ([_trg] call ws_fnc_getPosInArea);
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["garrison",count units _newgrp * 20]] spawn ws_fnc_addWaypoint;
+		[_newgrp,_pos,["garrison",50 + (count units _newgrp * 10)]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
 
@@ -85,7 +85,7 @@
 		};
 		private _pos = nearestBuilding _poi;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["garrison",count units _newgrp * 20]] spawn ws_fnc_addWaypoint;
+		[_newgrp,_pos,["garrison",50 + (count units _newgrp * 10)]] spawn ws_fnc_addWaypoint;
 		_poi getVariable ["groupspresent",[]] pushback (_newgrp);
 		_newgrp
 	}] call _fnc_createGroupType;
