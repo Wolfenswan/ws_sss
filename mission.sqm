@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=200;
+		nextID=218;
 	};
 	class MarkerIDProvider
 	{
@@ -29,13 +29,14 @@ addons[]=
 	"A3_Characters_F_Exp_Civil",
 	"A3_Modules_F",
 	"A3_Characters_F_Mark",
-	"A3_Structures_F_Households_House_Big02"
+	"A3_Structures_F_Households_House_Big02",
+	"A3_Soft_F_MRAP_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -71,6 +72,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="http://www.arma3.com";
 		};
+		class Item5
+		{
+			className="A3_Soft_F";
+			name="Arma 3 Alpha - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="http://www.arma3.com";
+		};
 	};
 };
 randomSeed=10317814;
@@ -101,7 +109,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=41;
+		items=50;
 		class Item0
 		{
 			dataType="Group";
@@ -114,7 +122,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1105.4681,5.0014391,1058.2427};
+						position[]={3986.7236,5.0014391,897.74683};
 					};
 					side="Civilian";
 					flags=6;
@@ -162,7 +170,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={886.53998,5,1509.213};
+				position[]={4297.127,5,937.17297};
 			};
 			name="ws_sss_controller";
 			init="this setVariable [""hold"",0];" \n "this setVariable [""hold-poi"",0];" \n "this setVariable [""patrol"",0];" \n "this setVariable [""patrol-poi"",0];" \n "this setVariable [""garrison"",0];" \n "this setVariable [""garrison-poi"",0];" \n "this setVariable [""ambush"",0];" \n "this setVariable [""ambush-poi"",0];" \n "this setVariable [""ambush-road"",0];";
@@ -172,7 +180,7 @@ class Mission
 		class Item2
 		{
 			dataType="Trigger";
-			position[]={1021.1591,31.32,1506.2595};
+			position[]={4431.7461,31.32,934.21948};
 			class Attributes
 			{
 				sizeA=100;
@@ -187,7 +195,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1070.6881,5,1488.1184};
+				position[]={4481.2749,5,916.07837};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=63;
@@ -198,7 +206,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1070.7593,5,1466.1694};
+				position[]={4481.3462,5,894.12939};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=64;
@@ -216,7 +224,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={906.03638,5.0014391,1395.1816};
+						position[]={4316.623,5.0014391,823.1416};
 					};
 					side="West";
 					flags=7;
@@ -255,7 +263,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={913.05811,5.0014391,1388.2085};
+						position[]={4323.645,5.0014391,816.16846};
 					};
 					side="West";
 					flags=5;
@@ -272,7 +280,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={918.05811,5.0014391,1383.2085};
+						position[]={4328.645,5.0014391,811.16846};
 					};
 					side="West";
 					flags=5;
@@ -288,7 +296,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={923.05811,5.0014391,1378.2085};
+						position[]={4333.645,5.0014391,806.16846};
 					};
 					side="West";
 					flags=5;
@@ -304,7 +312,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={928.05811,5.0014391,1373.2085};
+						position[]={4338.645,5.0014391,801.16846};
 					};
 					side="West";
 					flags=5;
@@ -328,7 +336,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1021.755,5,1570.0913};
+				position[]={4432.3418,5,998.05127};
 			};
 			init="this setVariable [""config"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=82;
@@ -339,7 +347,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={797.62097,5,1577.1904};
+				position[]={4068.021,5,910.46143};
 			};
 			title="Debug Controller";
 			description="ws_debug controls whether debug markers and information will be displayed during setup.";
@@ -350,7 +358,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={881.29797,5,1514.52};
+				position[]={4291.8848,5,942.47998};
 			};
 			title="Spawn Controllers";
 			description="Main logics controlling how many types of groups to spawn." \n "" \n "- needs to follow the ws_sss_controller_<number> naming system" \n "- synchronized to 1 to n triggers" \n "- synchronized to 1 to n group leaders";
@@ -361,7 +369,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={890.61298,5,1406.568};
+				position[]={4301.1997,5,834.52795};
 			};
 			title="Blueprint Groups";
 			description="Spawned groups will be based on these groups." \n "" \n "- Group-types need to be defined in the init of the group object (above the group leader)" \n "- Group settings (formation, behaviour etc.) will be copied over to the new group" \n "- Vehicles will be recognized, as long as group leader is mounted and all crew is in the same group";
@@ -372,7 +380,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1008.39,5,1511.8199};
+				position[]={4418.9771,5,939.77991};
 			};
 			title="Trigger(s) defining Area";
 			description="Trigger defines the area in which certain groups spawn." \n "" \n "- synchronized to 1 to n controller logics" \n "- synchronized to 0 to 1 ""config"" logic" \n "- synchronized to 0 to n ""poi"" logics";
@@ -383,7 +391,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1083.1672,5,1478.314};
+				position[]={4493.7539,5,906.27393};
 			};
 			title="Points of Interest";
 			description="Define the POIs for certain group types" \n "" \n "- Enabled by setting ""poi"" to true" \n "- Don't need to be inside trigger area" \n "- Accept ""maxGroups"" and ""types"" variables (see trigger config)";
@@ -394,7 +402,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1032.744,5,1570.7124};
+				position[]={4443.3311,5,998.67236};
 			};
 			title="Trigger Configuration";
 			description="Optional logic to configure trigger settings" \n "" \n "- enabled by setting ""config"" to true" \n "- if ""types""  is not empty only the contained group-types will be spawned" \n "- if ""maxGroups"" is > -1 then it defines the limit of groups in the area total";
@@ -403,7 +411,7 @@ class Mission
 		class Item13
 		{
 			dataType="Trigger";
-			position[]={785.83997,5,1611.9543};
+			position[]={4056.24,5,945.22534};
 			class Attributes
 			{
 				onActivation="nul = [] execVM ""ws_sss\ws_sss_init.sqf"";";
@@ -420,7 +428,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={797.0531,5,1612.0234};
+				position[]={4067.4531,5,945.29443};
 			};
 			title="Debug Trigger";
 			description="Remove in proper mission. Radio 0-0-1 starts spawn.";
@@ -431,7 +439,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1070.7593,5,1476.9937};
+				position[]={4481.3462,5,904.95361};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=114;
@@ -442,10 +450,10 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={930.61743,5,1679.0571};
+				position[]={4375.2109,5,1088.496};
 			};
 			title="Basic setup";
-			description="Check the included Setup.png for details.";
+			description="Hover over each comment for details. Check the included Setup.png  and PDFfor details.";
 			id=122;
 		};
 		class Item17
@@ -453,7 +461,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={785.33997,5,1576.8975};
+				position[]={4055.74,5,910.16846};
 			};
 			name="ws_debug";
 			init="ws_debug = true; hint 'use 0-0-1 to start spawning';";
@@ -465,7 +473,7 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={848.02502,5,1140.3647};
+				position[]={4312.2002,5,690.72803};
 			};
 			title="Example Setups";
 			id=123;
@@ -475,7 +483,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={878.18311,5,1508.9131};
+				position[]={4288.77,5,936.87305};
 			};
 			name="ws_sss_controller_1";
 			init="this setVariable [""hold"",0];" \n "this setVariable [""hold-poi"",0];" \n "this setVariable [""patrol"",0];" \n "this setVariable [""patrol-poi"",0];" \n "this setVariable [""garrison"",0];" \n "this setVariable [""garrison-poi"",0];" \n "this setVariable [""ambush"",0];" \n "this setVariable [""ambush-poi"",0];" \n "this setVariable [""ambush-road"",0];";
@@ -494,7 +502,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={892.74573,5.0014391,1395.3884};
+						position[]={4303.3325,5.0014391,823.34839};
 					};
 					side="West";
 					flags=7;
@@ -511,7 +519,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={897.74573,5.0014391,1390.3884};
+						position[]={4308.3325,5.0014391,818.34839};
 					};
 					side="West";
 					flags=5;
@@ -541,7 +549,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={877.58612,5.0014391,1395.3884};
+						position[]={4288.1729,5.0014391,823.34839};
 					};
 					side="West";
 					flags=7;
@@ -557,7 +565,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={882.58612,5.0014391,1390.3884};
+						position[]={4293.1729,5.0014391,818.34839};
 					};
 					side="West";
 					flags=5;
@@ -573,7 +581,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={872.58612,5.0014391,1390.3884};
+						position[]={4283.1729,5.0014391,818.34839};
 					};
 					side="West";
 					flags=5;
@@ -590,7 +598,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={887.58612,5.0014391,1385.3884};
+						position[]={4298.1729,5.0014391,813.34839};
 					};
 					side="West";
 					flags=5;
@@ -606,7 +614,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={867.58612,5.0014391,1385.3884};
+						position[]={4278.1729,5.0014391,813.34839};
 					};
 					side="West";
 					flags=5;
@@ -622,7 +630,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={892.58612,5.0014391,1380.3884};
+						position[]={4303.1729,5.0014391,808.34839};
 					};
 					side="West";
 					flags=5;
@@ -639,7 +647,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={862.58612,5.0014391,1380.3884};
+						position[]={4273.1729,5.0014391,808.34839};
 					};
 					side="West";
 					flags=5;
@@ -655,7 +663,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={897.58612,5.0014391,1375.3884};
+						position[]={4308.1729,5.0014391,803.34839};
 					};
 					side="West";
 					flags=5;
@@ -678,7 +686,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={535.11047,5,857.87402};
+				position[]={3780.0217,5,360.94873};
 			};
 			name="ws_sss_controller_2";
 			init="this setVariable [""hold"",0];" \n "this setVariable [""hold-poi"",0];" \n "this setVariable [""patrol"",3];" \n "this setVariable [""patrol-poi"",1];" \n "this setVariable [""garrison"",0];" \n "this setVariable [""garrison-poi"",0];" \n "this setVariable [""ambush"",0];" \n "this setVariable [""ambush-poi"",0];" \n "this setVariable [""ambush-road"",0];";
@@ -688,7 +696,7 @@ class Mission
 		class Item23
 		{
 			dataType="Trigger";
-			position[]={732.73944,31.32,909.6687};
+			position[]={3977.6506,31.32,412.74341};
 			class Attributes
 			{
 				sizeA=100;
@@ -703,7 +711,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={837.87354,5,1028.6992};
+				position[]={4082.7847,5,531.77393};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=139;
@@ -714,7 +722,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={733.29541,5,763.11035};
+				position[]={3978.2065,5,266.18506};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=140;
@@ -732,7 +740,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={543.59082,5.0014391,834.62738};
+						position[]={3788.502,5.0014391,337.70209};
 					};
 					side="West";
 					flags=7;
@@ -771,7 +779,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={550.61255,5.0014391,827.65424};
+						position[]={3795.5239,5.0014391,330.72894};
 					};
 					side="West";
 					flags=5;
@@ -788,7 +796,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={555.61255,5.0014391,822.65424};
+						position[]={3800.5239,5.0014391,325.72894};
 					};
 					side="West";
 					flags=5;
@@ -804,7 +812,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={560.61255,5.0014391,817.65424};
+						position[]={3805.5239,5.0014391,320.72894};
 					};
 					side="West";
 					flags=5;
@@ -820,7 +828,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={565.61255,5.0014391,812.65424};
+						position[]={3810.5239,5.0014391,315.72894};
 					};
 					side="West";
 					flags=5;
@@ -846,7 +854,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={851.70898,5,791.52002};
+				position[]={4096.6201,5,294.59473};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=156;
@@ -857,9 +865,9 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={646.71008,5,1049.3243};
+				position[]={3973.7983,5,575.02771};
 			};
-			title="Simple Patrols";
+			title="Patrols";
 			description="Will spawn 3 patrols inside the area and 1 patrol randomly patrol between the POIs in the area.";
 			id=157;
 		};
@@ -875,7 +883,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={530.30017,5.0014391,834.83417};
+						position[]={3775.2114,5.0014391,337.90887};
 					};
 					side="West";
 					flags=7;
@@ -892,7 +900,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={535.30017,5.0014391,829.83417};
+						position[]={3780.2114,5.0014391,332.90887};
 					};
 					side="West";
 					flags=5;
@@ -917,7 +925,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={613.5415,5,811.28516};
+				position[]={3858.4526,5,314.35986};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=172;
@@ -928,7 +936,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={628.91162,5,1018.0571};
+				position[]={3873.8228,5,521.13184};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=173;
@@ -939,7 +947,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={732.13116,5,1030.6758};
+				position[]={3977.0425,5,533.75049};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[]];" \n "this setVariable [""maxGroups"",-1];";
 			id=174;
@@ -950,17 +958,17 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1019.415,5,915.57397};
+				position[]={4224.2593,5,404.20172};
 			};
 			name="ws_sss_controller_3";
-			init="this setVariable [""hold"",0];" \n "this setVariable [""hold-poi"",1];" \n "this setVariable [""patrol"",0];" \n "this setVariable [""patrol-poi"",0];" \n "this setVariable [""garrison"",0];" \n "this setVariable [""garrison-poi"",1];" \n "this setVariable [""ambush"",0];" \n "this setVariable [""ambush-poi"",0];" \n "this setVariable [""ambush-road"",0];";
+			init="this setVariable [""hold"",0];" \n "this setVariable [""hold-poi"",1];" \n "this setVariable [""patrol"",1];" \n "this setVariable [""patrol-poi"",0];" \n "this setVariable [""garrison"",0];" \n "this setVariable [""garrison-poi"",1];" \n "this setVariable [""ambush"",0];" \n "this setVariable [""ambush-poi"",0];" \n "this setVariable [""ambush-road"",0];";
 			id=175;
 			type="Logic";
 		};
 		class Item34
 		{
 			dataType="Trigger";
-			position[]={1172.016,31.32,914.54602};
+			position[]={4376.8604,31.32,403.17395};
 			class Attributes
 			{
 				sizeA=100;
@@ -982,7 +990,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1017.159,5.0014391,866.66522};
+						position[]={4222.0034,5.0014391,355.29315};
 					};
 					side="West";
 					flags=7;
@@ -1021,7 +1029,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1024.1807,5.0014391,859.69208};
+						position[]={4229.0254,5.0014391,348.32001};
 					};
 					side="West";
 					flags=5;
@@ -1038,7 +1046,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1029.1807,5.0014391,854.69208};
+						position[]={4234.0254,5.0014391,343.32001};
 					};
 					side="West";
 					flags=5;
@@ -1054,7 +1062,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1034.1807,5.0014391,849.69208};
+						position[]={4239.0254,5.0014391,338.32001};
 					};
 					side="West";
 					flags=5;
@@ -1070,7 +1078,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1039.1807,5.0014391,844.69208};
+						position[]={4244.0254,5.0014391,333.32001};
 					};
 					side="West";
 					flags=5;
@@ -1096,10 +1104,10 @@ class Mission
 			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={1163.208,5,1033.5179};
+				position[]={4370.791,5,575.02771};
 			};
-			title="Simple Garrisons & Holds";
-			description="Will spawn 3 patrols inside the area and 1 patrol randomly patrol between the POIs in the area.";
+			title="MaxGroups restricted POIs & Vehicle Patrol";
+			description="Will spawn 3 groups, one garrisoning, one holding at POIs, one patrolling. As both POIs are set to 1 ""maxGroups"" both POIs are guaranteed to be occupied. The Hunter HMG group will randomly patrol the area.";
 			id=186;
 		};
 		class Item37
@@ -1107,7 +1115,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1173.1469,5,971.60693};
+				position[]={4377.9912,5,460.23486};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[""hold-poi"",""garrison-poi""]];" \n "this setVariable [""maxGroups"",1];";
 			id=191;
@@ -1118,7 +1126,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1171.7838,5,865.89453};
+				position[]={4376.6284,5,354.52246};
 			};
 			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[""hold-poi"",""garrison-poi""]];" \n "this setVariable [""maxGroups"",1];";
 			id=194;
@@ -1129,7 +1137,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1182.2784,7.6556168,972.07568};
+				position[]={4387.123,7.6556168,460.70361};
 			};
 			side="Empty";
 			flags=5;
@@ -1144,7 +1152,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1181.576,7.6556168,865.54102};
+				position[]={4386.4209,7.6556168,354.16895};
 			};
 			side="Empty";
 			flags=5;
@@ -1154,16 +1162,299 @@ class Mission
 			id=199;
 			type="Land_u_House_Big_02_V1_F";
 		};
+		class Item41
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4637.7461,5,386.83545};
+			};
+			name="ws_sss_controller_4";
+			init="this setVariable [""hold"",0];" \n "this setVariable [""hold-poi"",2];" \n "this setVariable [""patrol"",0];" \n "this setVariable [""patrol-poi"",0];" \n "this setVariable [""garrison"",0];" \n "this setVariable [""garrison-poi"",1];" \n "this setVariable [""ambush"",0];" \n "this setVariable [""ambush-poi"",2];" \n "this setVariable [""ambush-road"",0];";
+			id=200;
+			type="Logic";
+		};
+		class Item42
+		{
+			dataType="Trigger";
+			position[]={4725.8154,31.209999,389.78009};
+			class Attributes
+			{
+				sizeA=0;
+				sizeB=0;
+			};
+			id=201;
+			type="EmptyDetectorAreaR50";
+			atlOffset=26.209999;
+		};
+		class Item43
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4635.4907,5.0014391,337.92645};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+					};
+					id=203;
+					type="B_recon_TL_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4642.5122,5.0014391,330.95331};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+					};
+					id=204;
+					type="B_recon_M_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4647.5122,5.0014391,325.95331};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+					};
+					id=205;
+					type="B_recon_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4652.5122,5.0014391,320.95331};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+					};
+					id=206;
+					type="B_recon_JTAC_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4657.5122,5.0014391,315.95331};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+					};
+					id=207;
+					type="B_Recon_Sharpshooter_F";
+				};
+			};
+			class Attributes
+			{
+				init="this setVariable [""hold-poi"",true];" \n "this setVariable [""garrison-poi"",true];";
+				behaviour="SAFE";
+				speedMode="LIMITED";
+			};
+			id=202;
+		};
+		class Item44
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4681.9375,5,450.04346};
+			};
+			init="this setVariable [""poi"",true];";
+			id=208;
+			type="Logic";
+		};
+		class Item45
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4728.3848,5,321.57129};
+			};
+			init="this setVariable [""poi"",true];";
+			id=209;
+			type="Logic";
+		};
+		class Item46
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={4724.4316,5,576.53809};
+			};
+			title="Ambushes & Holds with no trigger area";
+			description="Will spawn 4 groups, two ambushing,  two holding at POIs. The trigger does not need to have an area as only ""-poi"" groups are spawned. Ambush groups can spawn at all POIs but as the north-eastern POI is restricted to ""ambush-poi"" it will never spawn a ""hold-poi"" group.";
+			id=212;
+		};
+		class Item47
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4784.7148,5,453.99609};
+			};
+			init="this setVariable [""poi"",true];" \n "this setVariable [""types"",[""ambush-poi""]];";
+			id=213;
+			type="Logic";
+		};
+		class Item48
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4207.1924,5.0014391,341.01068};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=216;
+					type="B_Soldier_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4207.1924,5.0014391,341.01068};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=217;
+					type="B_Soldier_F";
+				};
+			};
+			class Attributes
+			{
+				init="this setVariable [""patrol"",true];";
+				behaviour="SAFE";
+				speedMode="LIMITED";
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=2;
+				};
+				class Links
+				{
+					items=2;
+					class Item0
+					{
+						linkID=0;
+						item0=216;
+						item1=215;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=217;
+						item1=215;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=214;
+		};
+		class Item49
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4207.1924,7.7582445,340.95874};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+			};
+			id=215;
+			type="B_MRAP_01_hmg_F";
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=21;
+			nextID=27;
 		};
 		class Links
 		{
-			items=21;
+			items=27;
 			class Item0
 			{
 				linkID=0;
@@ -1369,6 +1660,66 @@ class Mission
 				linkID=20;
 				item0=194;
 				item1=176;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item21
+			{
+				linkID=21;
+				item0=200;
+				item1=203;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item22
+			{
+				linkID=22;
+				item0=201;
+				item1=200;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item23
+			{
+				linkID=23;
+				item0=208;
+				item1=201;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item24
+			{
+				linkID=24;
+				item0=209;
+				item1=201;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item25
+			{
+				linkID=25;
+				item0=213;
+				item1=201;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item26
+			{
+				linkID=26;
+				item0=215;
+				item1=175;
 				class CustomData
 				{
 					type="Sync";
