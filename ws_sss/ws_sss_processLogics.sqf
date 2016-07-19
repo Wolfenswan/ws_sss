@@ -13,6 +13,7 @@ private _logics = [ws_sss_controller] call ws_fnc_collectObjectsNUm;
 		// Synchronized Group leaders
 		if (_x isKindOf "Man" && {!(group _x in _arr1)}) then {
 			_arr1 pushback (group _x);
+			(group _x) setVariable ["classes",([units (group _x)] call ws_fnc_getObjectClasses)];
 		};
 
 		// Synchronized Triggers
@@ -33,14 +34,14 @@ private _logics = [ws_sss_controller] call ws_fnc_collectObjectsNUm;
 					_pois pushback (_x);
 				};
 			} forEach synchronizedObjects _trg;
-			_trg setVariable ["pois",_pois];
+			_trg setVariable ["spawns",_pois];
 			_trg setVariable ["groupspresent",[]];
 			_arr2 pushBack (_trg);
 
 		};
 	} forEach synchronizedObjects _logic;
 	_logic setVariable ["groups",_arr1];
-	_logic setVariable ["triggers",_arr2];
+	_logic setVariable ["spawns",_arr2];
 	_logic setVariable ["groupspresent",[]];
 
 } forEach _logics;

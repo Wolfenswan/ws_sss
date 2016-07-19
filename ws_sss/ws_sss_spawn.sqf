@@ -5,6 +5,8 @@
 {
 	private _logic = _x;
 
+	if (count (_logic getVariable ["spawns",[]]) > 0) then {
+
 	/*
 	[_logic,"typename",{
 		params ["_grp","_trg","_classes"];
@@ -20,21 +22,20 @@
 		params ["_grp","_trg","_classes"];
 		private _pos = [_trg] call ws_fnc_getPosInArea;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["HOLD"]] call ws_fnc_addWaypoint;
+		[_newgrp,_pos,["HOLD"]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
 
 	// Hold (PoI)
-	private _type = "hold-poi";
 	[_logic,"hold-poi",{
 		params ["_grp","_trg","_classes"];
-		private _poi = [_trg] call _fnc_getGoodPoi;
+		private _poi = [_trg,_type] call _fnc_getGoodSpawn;
 		if (isNull _poi) exitWith {
 			["ws_sss DBG: ",[_trg, _type]," does not have any valid POIs left but is trying to spawn groups on them!"] call ws_fnc_debugtext;
 		};
-		private _pos = getPos _poi;
+		private _pos = [_poi,50,0,360] call ws_fnc_getPos;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["HOLD",50]] call ws_fnc_addWaypoint;
+		[_newgrp,_pos,["HOLD",50]] spawn ws_fnc_addWaypoint;
 		_poi getVariable ["groupspresent",[]] pushback (_newgrp);
 		_newgrp
 	}] call _fnc_createGroupType;
@@ -44,15 +45,15 @@
 		params ["_grp","_trg","_classes"];
 		private _pos = [_trg] call ws_fnc_getPosInArea;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["patrol",400]] call ws_fnc_addWaypoint;
+		[_newgrp,_pos,["patrol",250]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
 
 	// Patrol (PoI)
 	[_logic,"patrol-poi",{
 		params ["_grp","_trg","_classes"];
-		private _poi = [_trg] call _fnc_getGoodPoi;
-		if (isNull _poi) exitWith {
+		private _poi = selectRandom (_trg getVariable ["spawns",[]]);
+		if (isNil "_poi") exitWith {
 			["ws_sss DBG: ",[_trg, _type]," does not have any valid POIs left but is trying to spawn groups on them!"] call ws_fnc_debugtext;
 		};
 		private _pos = getPos _poi;
@@ -62,8 +63,8 @@
 		{
 			[_newgrp,getPos _x,["move"]] call ws_fnc_addWaypoint;
 		} forEach(_trg getVariable ["pois",[]]);
-		[_newgrp,_pos,["cycle"]] call ws_fnc_addWaypoint;
-		_poi getVariable ["groupspresent",[]] pushback (_newgrp);
+		[_newgrp,_pos,["cycle"]] spawn ws_fnc_addWaypoint;
+		//_poi getVariable ["groupspresent",[]] pushback (_newgrp); - As the group patrols it's not "present"
 		_newgrp
 	}] call _fnc_createGroupType;
 
@@ -72,20 +73,21 @@
 		params ["_grp","_trg","_classes"];
 		private _pos = nearestBuilding ([_trg] call ws_fnc_getPosInArea);
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["garrison",count units _newgrp * 20]] call ws_fnc_addWaypoint;
+		[_newgrp,_pos,["garrison",count units _newgrp * 20]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
 
 	// Garrison (POI)
 	[_logic,"garrison-poi",{
 		params ["_grp","_trg","_classes"];
-		private _poi = [_trg] call _fnc_getGoodPoi;
+		private _poi = [_trg,_type] call _fnc_getGoodSpawn;
 		if (isNull _poi) exitWith {
 			["ws_sss DBG: ",[_trg, _type]," does not have any valid POIs left but is trying to spawn groups on them!"] call ws_fnc_debugtext;
 		};
 		private _pos = nearestBuilding _poi;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["garrison",count units _newgrp * 20]] call ws_fnc_addWaypoint;
+		[_newgrp,_pos,["garrison",count units _newgrp * 20]] spawn ws_fnc_addWaypoint;
+		_poi getVariable ["groupspresent",[]] pushback (_newgrp);
 		_newgrp
 	}] call _fnc_createGroupType;
 
@@ -94,36 +96,38 @@
 		params ["_grp","_trg","_classes"];
 		private _pos = [_trg] call ws_fnc_getPosInArea;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["ambush"]] call ws_fnc_addWaypoint;
+		[_newgrp,_pos,["ambush"]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
 
 	// Ambush (POI)
 	[_logic,"ambush-poi",{
 		params ["_grp","_trg","_classes"];
-		private _poi = [_trg] call _fnc_getGoodPoi;
+		private _poi = [_trg,_type] call _fnc_getGoodSpawn;
 		if (isNull _poi) exitWith {
 			["ws_sss DBG: ",[_trg, _type]," does not have any valid POIs left but is trying to spawn groups on them!"] call ws_fnc_debugtext;
 		};
-		private _pos = getPos _poi;
+		private _pos = [_poi,50,0,360] call ws_fnc_getPos;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["ambush"]] call ws_fnc_addWaypoint;
+		_poi getVariable ["groupspresent",[]] pushback (_newgrp);
+		[_newgrp,_pos,["ambush"]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
 
 	// Ambush (Road)
 	[_logic,"ambush-road",{
 		params ["_grp","_trg","_classes"];
-		private _pos = [([_trg] call ws_fnc_getPosInArea)] call ws_fnc_NearestRoadPos;
+		private _pos = [_trg] call ws_fnc_getPosInArea;
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["ambush"]] call ws_fnc_addWaypoint;
+		[_newgrp,_pos,["ambush",10,50,true]] call ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
+
+	};
 
 } forEach _logics;
 
 // Clean-Up
-/*
 {
 private _grps = _x getVariable ["groups",[]];
 	{
