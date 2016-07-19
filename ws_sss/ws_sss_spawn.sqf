@@ -51,7 +51,7 @@
 	// Patrol (PoI)
 	[_logic,"patrol-poi",{
 		params ["_grp","_trg","_classes"];
-		private _pois =  (_trg getVariable ["pois",[]]) select {(_type in (_x getVariable ["types",[]])) || (count (_x getVariable ["types",[]]) == 0)};
+		private _pois =  (_trg getVariable ["spawns",[]]);// select {(_type in (_x getVariable ["types",[]])) || (count (_x getVariable ["types",[]]) == 0)};
 		private _poi = selectRandom _pois;
 		if (isNil "_poi") exitWith {
 			["ws_sss DBG: ",[_trg, _type]," does not have any valid POIs left but is trying to spawn groups on them!"] call ws_fnc_debugtext;
@@ -62,11 +62,18 @@
 		// TODO Randomize patrol points
 		// TODO Only pick pois with proper type
 		// Shuffle array
+		systemchat format ["%1",_pois];
 		_pois = _pois - [_poi];
-		_pois = _pois call ws_fnc_shuffleArray;
+		_pois = [_pois] call ws_fnc_shuffleArray;
+
 		{
-			_newgrp,getPos _x,["move"]] call ws_fnc_addWaypoint;
-		} forEach (_pois + (reverse _pois));
+			[_newgrp,getPos _x,["move"]] call ws_fnc_addWaypoint;
+		} forEach _pois;
+		reverse _pois;
+		{
+			[_newgrp,getPos _x,["move"]] call ws_fnc_addWaypoint;
+		} forEach _pois;
+
 		[_newgrp,_pos,["cycle"]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
@@ -130,6 +137,7 @@
 
 } forEach _logics;
 
+/*
 // Clean-Up
 {
 private _grps = _x getVariable ["groups",[]];

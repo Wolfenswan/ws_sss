@@ -64,6 +64,6 @@ _fnc_createGroupType = {
 		};
 		//_logic setVariable ["groupspresent",((_logic getVariable ["groupspresent",[]]) + [_newgrp])];
 
-		systemchat format ["Done with type loop %2 of %3",_type,_i,(_logic getVariable [_type,0])];
+		systemchat format ["Done with %1 loop %2 of %3",_type,_i,(_logic getVariable [_type,0])];
 	};
 };
