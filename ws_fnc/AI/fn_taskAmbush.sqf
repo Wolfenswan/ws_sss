@@ -85,7 +85,7 @@ _grp setCurrentWaypoint _wp;
 _sidesEnemy = (side _grp) call BIS_fnc_enemySides;
 
 // Set group to go stealth at overwatch position
-_wp = [_grp,_nPos,["HOLD",0,10],["STEALTH","GREEN","NORMAL"]] call ws_fnc_addWaypoint;
+_wp = [_grp,_nPos,["HOLD",0,0],["STEALTH","GREEN","NORMAL"]] call ws_fnc_addWaypoint;
 
 // Create switch triggers for each enemy side and synch them to the overwatch waypoint
 {
