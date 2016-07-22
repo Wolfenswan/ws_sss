@@ -137,7 +137,6 @@
 
 } forEach _logics;
 
-/*
 // Clean-Up
 {
 private _grps = _x getVariable ["groups",[]];
@@ -147,3 +146,5 @@ private _grps = _x getVariable ["groups",[]];
 		deleteGroup _grp;
 	} forEach _grps;
 } forEach _logics;
+
+["ws_sss_spawnDone",true,true,true] call ws_fnc_setGVar;
