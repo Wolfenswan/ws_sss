@@ -62,7 +62,6 @@
 		// TODO Randomize patrol points
 		// TODO Only pick pois with proper type
 		// Shuffle array
-		systemchat format ["%1",_pois];
 		_pois = _pois - [_poi];
 		_pois = [_pois] call ws_fnc_shuffleArray;
 
@@ -83,7 +82,7 @@
 		params ["_grp","_trg","_classes"];
 		private _pos = nearestBuilding ([_trg] call ws_fnc_getPosInArea);
 		private _newgrp = ([_pos,side leader _grp,count units _grp,[_classes,[]]] call ws_fnc_createGroup) select 0;
-		[_newgrp,_pos,["garrison",50 + (count units _newgrp * 10)]] spawn ws_fnc_addWaypoint;
+		[_newgrp,_pos,["garrison",round(10*(count units _newgrp))]] spawn ws_fnc_addWaypoint;
 		_newgrp
 	}] call _fnc_createGroupType;
 

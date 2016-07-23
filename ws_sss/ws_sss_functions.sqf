@@ -34,7 +34,6 @@ _fnc_createGroupType = {
 	params["_logic","_type","_code"];
 
 	for "_i" from 1 to (_logic getVariable [_type,0]) do {
-		systemchat format ["Looping %1 - %2 of %3",_type,_i,(_logic getVariable [_type,0])];
 
 		private _trg = _logic call _fnc_getGoodSpawn;
 
@@ -66,8 +65,5 @@ _fnc_createGroupType = {
 		} else {
 			["ws_sss DBG: ",[_logic,_type,_i]," could not create group!"] call ws_fnc_debugtext;
 		};
-		//_logic setVariable ["groupspresent",((_logic getVariable ["groupspresent",[]]) + [_newgrp])];
-
-		systemchat format ["Done with %1 loop %2 of %3",_type,_i,(_logic getVariable [_type,0])];
 	};
 };
