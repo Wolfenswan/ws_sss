@@ -2,7 +2,7 @@
 
 // Check if client is a headless client
 _isHC = [] call ws_fnc_checkHC;
-_useHC = _this select 0;
+_useHC = param [0, false];
 ["ws_sss_spawnDone",false,true] call ws_fnc_setGVar;
 
 if (ws_sss_spawnDone) exitWith {};
