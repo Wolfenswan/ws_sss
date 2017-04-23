@@ -62,6 +62,7 @@ _fnc_createGroupType = {
 
 			_trg getVariable ["groupspresent",[]] pushback (_newgrp);
 			_logic getVariable ["groupspresent",[]] pushback (_newgrp);
+			if (dynamicSimulationEnabled) then {enableDynamicSimulation _newgrp};
 		} else {
 			["ws_sss DBG: ",[_logic,_type,_i]," could not create group!"] call ws_fnc_debugtext;
 		};

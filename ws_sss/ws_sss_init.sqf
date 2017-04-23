@@ -1,5 +1,8 @@
 /* WOLFENSWAN's SIMPLE SPAWN SYSTEM */
 
+// Use BI's Dynamic Simulation (if enabled)?
+ws_var_useDynamicSim = true;
+
 // Check if client is a headless client
 _isHC = [] call ws_fnc_checkHC;
 _useHC = param [0, false];
